@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>New Tab</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="extension_css.css">
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script type="text/javascript" src="modules/app_initializer.js"></script>
+    <script type="text/javascript" src="modules/image_queries.js"></script>
+    <script type="text/javascript" src="modules/server_communication.js"></script>
+    <script type="text/javascript" src="extension_js.js"></script>
+</head>
+
+<body id="homepage_body">
+
+    <div id="loading" class="loading">Loading&#8230;</div>
+
+    <div id="signup_page" class="login-page">
+        <div class="form">
+            <form id="register_Form" class="register-form">
+                <input id="reg_name" type="text" placeholder="name" required />
+                <input id="reg_email" type="text" placeholder="email address" required />
+                <input id="reg_password" type="password" placeholder="password" required />
+                <input id="reg_re_password" type="password" placeholder="re-enter password" required />
+                <input type="submit" id="Submit_reg_form" name="Submit_reg_form" value="Create">
+                <p id="error_message_reg" class="error_message"> this is a random error</p>
+                <p class="message">Already registered? <a id="go_to_login" href="#">Sign In</a></p>
+            </form>
+            <form  id="logIn_Form" class="login-form">
+                <input id="login_email" type="text" placeholder="email address" required />
+                <input id="login_password" type="password" placeholder="password" required />
+                <input type="submit" id="Submit_login_form" name="" value="LogIn">
+                <p id="error_message_logIn" class="error_message"> this is a random error</p>
+                <p class="message">Not registered? <a id="go_to_register" href="#">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="home_page">
+
+    <div id="log_out">
+        Logout
+    </div>
+    <div id="MyClockDisplay" class="clock"></div>
+    <marquee id="ShowEventScroll" behavior="scroll" direction="left" scrollamount="7"></marquee>
+    <div class="change_background">
+        <div hidden><input type="file" id="finput" accept=".gif,.jpg,.jpeg,.png"></div>
+        <i id="remove_icon" class="large remove icon">
+            <span class="tooltiptext">Remove Background</span>
+        </i>
+        <i id="edit_icon" class="large write square icon">
+            <span class="tooltiptext">Change Background</span>
+        </i>
+        <i id="configure_profile" class="large configure icon">
+            <span class="tooltiptext">Nothing Right Now</span>
+        </i>
+        <i id="invert_color" class="large adjust icon">
+            <span class="tooltiptext">Color Inversion</span>
+        </i>
+    </div>
+    <div id="upload_progress_bar">
+        <progress id="progress" value="0" max="100">
+        </progress>
+    </div>
+    <div id="Things_To_DO"></div>
+
+    <form id="Task_Input">
+        <input id="to_do" type="text" value="" placeholder="To Do..." required >
+        <div>
+            <span><input id="date" type="date" name="Date" title="Date"></span>
+            <span><input class="times" type="time" id="time" value="23:59:00" title="Time"></span>
+        </div>
+        <div id="priority">
+            <div></div>
+            <label>
+                <input type="radio" name="0" data-location="0" value="1">
+                <div>Low</div>
+            </label>
+            <label>
+                <input type="radio" name="calc(100% - 8px)" data-location="calc(100% - 8px)" value="2">
+                <div>Medium</div>
+            </label>
+            <label>
+                <input type="radio" name="calc(200% - 12px)" data-location="calc(200% - 12px)" value="3">
+                <div>High</div>
+            </label>
+        </div>
+        <input id="input_submit" type="submit" name="Submit" value="ADD">
+    </form>
+
+        <div id="weather">
+            <iframe id="white" src="https://www.meteoblue.com/en/weather/widget/three/dhaka_bangladesh_
+        1185241?geoloc=detect&nocurrent=0&noforecast=0&noforecast=1&days=4&tempunit=
+        CELSIUS&windunit=KILOMETER_PER_HOUR&layout=dark"
+                    frameborder="0" scrolling="NO" allowtransparency="true"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                    style="width: 360px;height: 221px">
+
+            </iframe>
+            <iframe id="black" src="https://www.meteoblue.com/en/weather/widget/three/dhaka_bangladesh_
+        1185241?geoloc=detect&nocurrent=0&noforecast=0&noforecast=1&days=4&tempunit=
+        CELSIUS&windunit=KILOMETER_PER_HOUR&layout=bright"
+                    frameborder="0" scrolling="NO" allowtransparency="true"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                    style="width: 360px;height: 221px">
+
+            </iframe>
+            <div><!-- DO NOT REMOVE THIS LINK -->
+                <a href="https://www.meteoblue.com/en/weather/forecast/week/dhaka_
+            bangladesh_1185241?utm_source=weather_widget&utm_
+            medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a>
+            </div>
+        </div>
+    <div id="task_list" class="ui dropdown">
+        <div id="show_hide">
+            To-Do List
+        </div>
+        <div id="search_container">
+            <form id ="search_form">
+                <input id="Search_date" type="date" name="Search_Date" title="Date" required>
+                <button id ="Search_submit" type="submit"><i class="large search icon"></i></i></button>
+                <div>
+                    <span><input class="times" id="minTime" type="time" value="00:00" title="Start Time"></span>
+                    <span><input class="times" type="time" id="maxTime" value="23:59" title="End Time"></span>
+                </div>
+                <div id="search_priority">
+                    <div></div>
+                    <label>
+                        <input type="radio" name="0" data-location="0" value="1">
+                        <div>Low</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="calc(100% - 8px)" data-location="calc(100% - 8px)" value="2">
+                        <div>Medium</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="calc(200% - 12px)" data-location="calc(200% - 12px)" value="3">
+                        <div>High</div>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <ul id="task_list_ul">
+
+        </ul>
+    </div>
+        <div id="favourite_list">
+            <div id="show_hide_fav">
+                Favourite Links
+            </div>
+            <ul id="favourite_list_ul">
+            </ul>
+        </div>
+        <div id="stat_page">
+            Stats
+        </div>
+
+    </div>
+
+</body>
+
+
+
+</html>

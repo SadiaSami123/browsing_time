@@ -1,0 +1,39 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+      <title>Productive Browsing</title>
+      <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+      <script type="text/javascript" src="modules/app_initializer.js"></script>
+      <script type="text/javascript" src="modules/server_communication.js"></script>
+      <script type="text/javascript" src="popup.js"></script>
+      <link rel="stylesheet" type="text/css" href="popup.css">
+  </head>
+  <body id="pop_up_body">
+    <div id="Tool_Bar">
+        <span id="home" class="tool_bar_span">Home</span>
+        <span id="stat" class="tool_bar_span">Stat</span>
+        <span id="LogOut" class="tool_bar_span">Logout</span>
+    </div>
+    <div id="log_in">
+        <button id="Log_in_button"  class="Buttons">
+            LogIn
+        </button>
+    </div>
+    <div id="Mark_Site">
+        <button id="mark_site_button"  class="Buttons">
+            Mark This Site as Time Killer
+        </button>
+    </div>
+    <div id="Unmark_Site">
+        <button id="unmark_site_button"  class="Buttons">
+            Unmark This Site as Time Killer
+        </button>
+    </div>
+
+  </body>
+</html>

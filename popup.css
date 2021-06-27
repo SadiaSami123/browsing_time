@@ -1,0 +1,50 @@
+/*noinspection CssUnknownTarget*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    min-width: 150px;
+    padding: 0;
+    background: #ced8e8;
+}
+.tool_bar_span{
+    display:inline-block;
+    border: 0;
+    font-size: 14px;
+    padding: 5px;
+}
+.tool_bar_span:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#Tool_Bar
+{
+    background: #ced8e8;
+    width: 100%;
+}
+.Buttons
+{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+#mark_site_button
+{
+    background: #f48042;
+}
+
+#unmark_site_button
+{
+    background: #4CAF50 ;
+}
+
+#Log_in_button
+{
+    background: #86a5d8;
+}

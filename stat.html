@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browsing Stats</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="stat.css">
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script type="text/javascript" src="modules/app_initializer.js"></script>
+    <script type="text/javascript" src="modules/image_queries.js"></script>
+    <script type="text/javascript" src="modules/server_communication.js"></script>
+    <script type="text/javascript" src="stat_js.js"></script>
+</head>
+<body id = "stat_page">
+    <div id="loading" class="loading">Loading&#8230;</div>
+    <div id = "site_usage">
+        <div>
+            <span class="usage_title">Site Name:</span> <span id="site_name" class="site_stat"></span>
+        </div>
+        <div>
+            <span class="usage_title">Daily Usage:</span> <span id="daily_usage" class="site_stat"></span>
+        </div>
+        <div>
+            <span class="usage_title">Weekly Usage:</span> <span id="weekly_usage" class="site_stat"></span>
+        </div>
+        <div>
+            <span class="usage_title">Monthly Usage:</span> <span id="monthly_usage" class="site_stat"></span>
+        </div>
+    </div>
+    <div id="marked_sites">
+        <div id="show_hide">
+            Marked Sites
+        </div>
+        <ul id="mark_sites_ul">
+        </ul>
+    </div>
+
+    <div id="bar_chart_container">
+        <div class="container horizontal rounded">
+            <h2>Total Usage Statistics of Marked Sites</h2>
+            <div class="progress-bar horizontal">
+                <span class="bar_chart_inside_text"></span>
+                <div class="progress-track">
+                    <div class="progress-fill">
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar horizontal">
+                <span class="bar_chart_inside_text"></span>
+                <div class="progress-track">
+                    <div class="progress-fill">
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar horizontal">
+                <span class="bar_chart_inside_text"></span>
+                <div class="progress-track">
+                    <div class="progress-fill">
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar horizontal">
+                <span class="bar_chart_inside_text"></span>
+                <div class="progress-track">
+                    <div class="progress-fill">
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar horizontal">
+                <span class="bar_chart_inside_text"></span>
+                <div class="progress-track">
+                    <div class="progress-fill">
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar horizontal">
+                <span id="next_button">
+                    Next>>
+                </span>
+
+                <span id="prev_button">
+                    &lt&ltPrev
+                </span>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
